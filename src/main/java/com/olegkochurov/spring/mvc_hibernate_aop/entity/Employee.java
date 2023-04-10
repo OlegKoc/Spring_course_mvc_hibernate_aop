@@ -3,12 +3,12 @@ package com.olegkochurov.spring.mvc_hibernate_aop.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employees") // класс с помощью которого мы связываемся с БД employees
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "id")
+    @Column(name = "id")  // связываем столбец поле в  БД ID
     private int id;
 
     @Column(name = "name")
