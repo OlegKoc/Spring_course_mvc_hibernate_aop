@@ -24,10 +24,18 @@ public class EmployeesDAOimpl implements EmployeeDao {    // класс отве
         return allEmployees;
     }
 
+    @Transactional
     @Override
     public void saveEmployee(Employee employee) {     // метод ответственный за БД и его метод вызывает класс Сервис
         Session session = sessionFactory.getCurrentSession(); // получаем сессию
-        session.save(employee); // сохраняем работника
+        session.saveOrUpdate(employee); // сохраняем работника
 
+    }
+
+    @Override
+    public Employee getEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee = session.get(Employee.class, id);
+        return employee;
     }
 }

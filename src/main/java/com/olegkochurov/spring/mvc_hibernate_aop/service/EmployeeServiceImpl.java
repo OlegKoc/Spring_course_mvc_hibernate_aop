@@ -21,8 +21,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Transactional
+    @Override
     public void saveEmployee(Employee employee) {
         employeeDao.saveEmployee(employee); // вызываем метод класа Dao
 
+    }
+
+    @Transactional
+    @Override
+    public Employee getEmployee(int id) {
+        return employeeDao.getEmployee(id);
     }
 }
